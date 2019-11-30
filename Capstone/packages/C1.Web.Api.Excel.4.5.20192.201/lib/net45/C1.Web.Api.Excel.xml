@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.Web.Api.Excel</name>
+    </assembly>
+    <members>
+        <member name="T:C1.Web.Api.Excel.ExcelExportModelBinderAttribute">
+            <summary>
+            An attribute to apply to action parameters for model binding for Excel export.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelExportModelBinderAttribute.#ctor">
+            <summary>
+            Initialize a new instance of the ExcelExportModelBinderAttribute class.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.ExcelController">
+            <summary>
+            Controller for Excel Web API.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.Get(C1.Web.Api.Excel.ExcelRequest)">
+            <summary>
+            Gets the result containing the requested excel according to the specified request.
+            </summary>
+            <param name="re">The request</param>
+            <returns>The result containing the requested excel</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.GetOperation(System.String,System.Collections.Generic.IDictionary{System.String,System.String[]})">
+            <summary>
+            Process the GET request.
+            </summary>
+            <param name="pathAndCmd">The text for path and command.</param>
+            <param name="parameters">The request parameters.</param>
+            <returns>The response result.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.PutOperation(System.String,System.Collections.Generic.IDictionary{System.String,System.String[]})">
+            <summary>
+            Process the PUT request.
+            </summary>
+            <param name="pathAndCmd">The text for path and command.</param>
+            <param name="parameters">The request parameters.</param>
+            <returns>The response result.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.PostOperation(System.String,System.Collections.Generic.IDictionary{System.String,System.String[]})">
+            <summary>
+            Process the POST request.
+            </summary>
+            <param name="pathAndCmd">The text for path and command.</param>
+            <param name="parameters">The request parameters.</param>
+            <returns>The response result.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.DeleteOperation(System.String,System.Collections.Generic.IDictionary{System.String,System.String[]})">
+            <summary>
+            Process the DELETE request.
+            </summary>
+            <param name="pathAndCmd">The text for path and command.</param>
+            <param name="parameters">The request parameters.</param>
+            <returns>The response result.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.Post(C1.Web.Api.Excel.ExcelRequest)">
+            <summary>
+            Gets the result containing the requested excel according to the posted request.
+            </summary>
+            <param name="re">The request</param>
+            <returns>The result containing the requested excel</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.Merge(C1.Web.Api.Excel.MergeRequest)">
+            <summary>
+            Gets the result of merging multiple excels according to the specified request.
+            </summary>
+            <param name="re">The request</param>
+            <returns>The result containing the requested excel</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.MergePost(C1.Web.Api.Excel.MergeRequest)">
+            <summary>
+            Gets the result of merging multiple excels according to the posted request.
+            </summary>
+            <param name="re">The request</param>
+            <returns>The result containing the requested excel</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.Import(C1.Web.Api.ImportSource)">
+            <summary>
+            Import from a file into a json text with the Excel common format.
+            </summary>
+            <param name="source">The import source.</param>
+            <returns>A json text with the Excel common format.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelController.Export(C1.Web.Api.Excel.ExcelExportSource)">
+            <summary>
+            Export to an excel file.
+            </summary>
+            <param name="source">The data used for the Excel export requests.</param>
+            <returns>An excel file.</returns>
+        </member>
+        <member name="T:C1.Web.Api.Excel.C1ExcelHost">
+            <summary>
+            Implementation of IExcelHost using C1.Excel.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.IExcelHost">
+            <summary>
+            Interface for converting Excel file stream to JSON format.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.IExcelHost.Read(System.IO.Stream,System.String)">
+            <summary>
+            Read data from Excel file stream.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="fileType">The file extension.</param>
+            <returns>A Workbook object.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.IExcelHost.Write(C1.Web.Api.Excel.Workbook,System.IO.Stream,System.String)">
+            <summary>
+            Write data to Excel file stream.
+            </summary>
+            <param name="workbook">A Workbook object.</param>
+            <param name="file">The file.</param>
+            <param name="fileType">The file extension.</param>
+        </member>
+        <member name="M:C1.Web.Api.Excel.C1ExcelHost.C1#Web#Api#Excel#IExcelHost#Read(System.IO.Stream,System.String)">
+            <summary>
+            Read data from Excel file stream.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="fileType">The file extension.</param>
+            <returns>A Workbook object.</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.C1ExcelHost.C1#Web#Api#Excel#IExcelHost#Write(C1.Web.Api.Excel.Workbook,System.IO.Stream,System.String)">
+            <summary>
+            Write data to Excel file stream.
+            </summary>
+            <param name="workbook">A Workbook object.</param>
+            <param name="file">The file.</param>
+            <param name="fileType">The file extension.</param>
+        </member>
+        <member name="T:C1.Web.Api.Excel.ExcelExporter">
+            <summary>
+            Exporter that is responsible for converting an ExcelExportSource to an Excel file.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelExporter.#ctor">
+            <summary>
+            Create an ExcelExporter instance.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelExporter.ExportAsync(C1.Web.Api.Excel.ExcelExportSource,System.IO.Stream)">
+            <summary>
+            Execute the export.
+            </summary>
+            <param name="exportSource">The export options.</param>
+            <param name="outputStream">The export result.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:C1.Web.Api.Excel.ExcelImporter">
+            <summary>
+            Importer that is responsible for converting an uploaded file to an Excel JSON.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelImporter.#ctor">
+            <summary>
+            Create an ExcelImporter instance.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelImporter.ImportAsync(C1.Web.Api.ImportSource)">
+            <summary>
+            Execute the import.
+            </summary>
+            <param name="source">The import options.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:C1.Web.Api.Excel.ExcelRequest">
+            <summary>
+            The request data of generating the excel.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelRequest.#ctor">
+            <summary>
+            Createa an ExcelRequest instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.DataName">
+            <summary>
+            Gets or sets the data name that data provider recognizes.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.TemplateFileName">
+            <summary>
+            Gets or sets the template file name that storage manager can recognize.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.TemplateFile">
+            <summary>
+            Gets or sets the template file which is posted from client side.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.DataFileName">
+            <summary>
+            Gets or sets the xml data file name that storage manager can recognize.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.DataFile">
+            <summary>
+            Gets or sets the xml data file stream which is posted from client side.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.Data">
+            <summary>
+            Gets or sets the data which is posted from client side.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.Workbook">
+            <summary>
+            Gets or sets the workbook which is posted from client side.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.WorkbookFile">
+            <summary>
+            Gets or sets the Excel file which is posted from client side.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelRequest.WorkbookFileName">
+            <summary>
+            Gets or sets the workbook file name that storage manager can recognize.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.ExcelMerger.ResolveHyperLinks(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{C1.C1Excel.XLSheet})">
+            <summary>
+            Change the sheet name which is referenced by cell's hyperlink
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.MergeRequest">
+            <summary>
+            The request data of merging excels.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.MergeRequest.#ctor">
+            <summary>
+            Createa a MergeRequest instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.MergeRequest.FileNamesToMerge">
+            <summary>
+            Gets or sets a collection of file name that are used to merge, and the names can be recognized by storage manager.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.MergeRequest.FilesToMerge">
+            <summary>
+            Gets or sets a collection of Excel files which is posted from client side for merging.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.ExcelExportSource">
+            <summary>
+            The exchange data model used for sending Excel export requests.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.ExcelExportSource.Workbook">
+            <summary>
+            The workbook to export.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Workbook">
+            <summary>
+            The Excel workbook.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Workbook.#ctor">
+            <summary>
+            Create a new instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Application">
+            <summary>
+            Gets or sets the name of application that generated the file that appears in the file properties.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Company">
+            <summary>
+            Gets or sets the name of company that generated the file that appears in the file properties.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Creator">
+            <summary>
+            Gets or sets the name of the creator.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Created">
+            <summary>
+            Gets or sets the created time.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.LastModifiedBy">
+            <summary>
+            Gets or sets the name of the person who made the latest modification.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Modified">
+            <summary>
+            Gets or sets the modified time.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.ActiveWorksheet">
+            <summary>
+            Gets or sets the current worksheet.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Sheets">
+            <summary>
+            Gets the worksheet collection of the workbook.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.Styles">
+            <summary>
+            Gets the styles table of the workbook.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.DefinedNames">
+            <summary>
+            Gets the defined name items of the workbook.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Workbook.ColorThemes">
+            <summary>
+            Gets or sets the color of the workbook themes.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Worksheet">
+            <summary>
+            The Excel worksheet.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Worksheet.#ctor">
+            <summary>
+            Create a new instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.FrozenPane">
+            <summary>
+            Gets or sets the FrozenPane of the worksheet.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.Name">
+            <summary>
+            Gets or sets the name of the worksheet.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.Cols">
+            <summary>
+            The column definitions in the worksheet.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.Columns">
+            <summary>
+            Gets the column definitions in the worksheet.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.Rows">
+            <summary>
+            Gets the row data in the worksheet.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.IsGroupHeaderAbove">
+            <summary>
+            Gets or sets whether the summary of the group is above.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.Visible">
+            <summary>
+            Gets or sets the worksheet visibility.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.SummaryBelow">
+            <summary>
+            Gets or sets a value indicating whether summary rows appear below or above detail rows.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Worksheet.Tables">
+            <summary>
+            Gets the tables in this worksheet.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.WorkbookTable">
+            <summary>
+            Represents the Table definition.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.WorkbookTable.#ctor">
+            <summary>
+            Creates a WorkbookTable instance.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.WorkbookTable.#ctor(System.String,System.String,C1.Web.Api.Excel.WorkbookTableStyle,System.Collections.Generic.List{C1.Web.Api.Excel.WorkbookTableColumn})">
+            <summary>
+            Creates a WorkbookTable instance.
+            </summary>
+            <param name="name">The name of the table.</param>
+            <param name="range">The range of the table.</param>
+            <param name="style">The table style to use with the table.</param>
+            <param name="columns">The columns of the table.</param>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+            <remarks>
+            It is used to reference the table programmatically.
+            </remarks>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.Range">
+            <summary>
+            Gets or sets range on the relevant sheet that the table occupies expressed using A1 style referencing. i.e. "A1:D4".
+            </summary>
+            <remarks>
+            The reference shall include the totals row if it is shown.
+            </remarks>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.ShowHeaderRow">
+            <summary>
+            Indicating whether show the header row for the table.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.ShowTotalRow">
+            <summary>
+            Indicating whether show the total row for the table.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.ShowBandedColumns">
+            <summary>
+            Indicating whether banded column formatting is applied.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.ShowBandedRows">
+            <summary>
+            Indicating whether banded row formatting is applied.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.AlterFirstColumn">
+            <summary>
+            Indicating whether the first column in the table should have the style applied.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.AlterLastColumn">
+            <summary>
+            Indicating whether the last column in the table should have the style applied.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.Style">
+            <summary>
+            Gets or sets table style to use with the table.
+            </summary>
+            <remarks>
+            The default style is the 'TableStyleMedium9' built-in table style, if the style is omitted.
+            </remarks>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTable.Columns">
+            <summary>
+            Gets the columns of the table.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.WorkbookTableStyle">
+            <summary>
+            Represents the Table Style definition.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.Name">
+            <summary>
+            Gets or sets the name of the table style.
+            </summary>
+            <remarks>
+            Workbook supports built-in names: "TableStyleLight1" to "TableStyleLight21", "TableStyleMedium1" to "TableStyleMedium28", "TableStyleDark1" to "TableStyleDark11".
+            </remarks>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.WholeTableStyle">
+            <summary>
+            Gets or sets the whole table style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.FirstBandedColumnStyle">
+            <summary>
+            Gets or sets the first column stripe style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.SecondBandedColumnStyle">
+            <summary>
+            Gets or sets the second column stripe style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.FirstBandedRowStyle">
+            <summary>
+            Gets or sets the first row stripe style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.SecondBandedRowStyle">
+            <summary>
+            Gets or sets the second row stripe style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.FirstColumnStyle">
+            <summary>
+            Gets or sets the first column style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.LastColumnStyle">
+            <summary>
+            Gets or sets the last column style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.HeaderRowStyle">
+            <summary>
+            Gets or sets the header row style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.TotalRowStyle">
+            <summary>
+            Gets or sets the total row style.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.FirstHeaderCellStyle">
+            <summary>
+            Gets or sets the first cell style in the header row.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.LastHeaderCellStyle">
+            <summary>
+            Gets or sets the last cell style in the header row.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.FirstTotalCellStyle">
+            <summary>
+            Gets or sets the first cell style in the total row.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableStyle.LastTotalCellStyle">
+            <summary>
+            Gets or sets the last cell style in the total row.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.WorkbookTableCommonStyle">
+            <summary>
+            Represents the Table Common Style definition.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Style">
+            <summary>
+            The appearance attributes of certain cells.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Style.#ctor">
+            <summary>
+            Create a Style instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.Format">
+            <summary>
+            Gets or sets the excel format string.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.FormatCode">
+            <summary>
+            The format string.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.BaseOn">
+            <summary>
+            Gets or sets the the base style that this style inherits from.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.Font">
+            <summary>
+            Gets or sets the font of text.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.HAlign">
+            <summary>
+            Gets or sets the horizontal alignment of cell content.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.VAlign">
+            <summary>
+            Gets or sets the vertical alignment of cell content.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.Indent">
+            <summary>
+            Gets or sets the text indent.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.TextRotation">
+            <summary>
+            Gets or sets the rotation angle of text.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.TextDirection">
+            <summary>
+            Gets or sets the direction of text flow.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.Fill">
+            <summary>
+            Gets or sets the cell fill.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.Border">
+            <summary>
+            Gets or sets the cell border.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.WrapText">
+            <summary>
+            Gets or sets a value indicating whether allow text wrap.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.ShrinkToFit">
+            <summary>
+            Gets or sets a value indicating whether allow text shrink to fit cell size.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Style.Locked">
+            <summary>
+            Gets or sets a value indicating whether to lock the cells.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableCommonStyle.Borders">
+            <summary>
+            Gets or sets the table borders setting.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.WorkbookTableBandedStyle">
+            <summary>
+            Represents the Table Stripe Style definition.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.WorkbookTableBandedStyle.ShouldSerializeSizeValue">
+            <summary>
+            Determines whether to serialize the <see cref="P:C1.Web.Api.Excel.WorkbookTableBandedStyle.SizeValue"/> property.
+            </summary>
+            <returns>true if should serialize the <see cref="P:C1.Web.Api.Excel.WorkbookTableBandedStyle.SizeValue"/> property; otherwise, false.</returns>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableBandedStyle.Size">
+            <summary>
+            Gets or sets the number of rows or columns in a single band of striping.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableBandedStyle.SizeValue">
+            <summary>
+            Gets or sets the <see cref="P:C1.Web.Api.Excel.WorkbookTableBandedStyle.Size"/> for xml serialization.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.WorkbookTableBorder">
+            <summary>
+            Represents the Table border definition.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableBorder.Vertical">
+            <summary>
+            Gets or sets the vertical border setting.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableBorder.Horizontal">
+            <summary>
+            Gets or set the horizontal border setting.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.WorkbookTableColumn">
+            <summary>
+            Represents the Table Column definition.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableColumn.Name">
+            <summary>
+            The name of the table column.
+            </summary>
+            <remarks>
+            It is referenced through functions.
+            </remarks>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableColumn.TotalRowLabel">
+            <summary>
+            Gets or sets the string to show in the totals row cell for the column.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableColumn.TotalRowFunction">
+            <summary>
+            Gets or sets the function to show in the totals row cell for this column.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.WorkbookTableColumn.ShowFilterButton">
+            <summary>
+            Indicating whether show filter button for the column.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.FrozenPane">
+            <summary>
+            The FrozenPane of worksheet
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.FrozenPane.#ctor">
+            <summary>
+            Create a FrozenPane instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.FrozenPane.Rows">
+            <summary>
+            Gets or sets the frozen row index.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.FrozenPane.Columns">
+            <summary>
+            Gets or sets the frozen column index.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Cell">
+            <summary>
+            The Excel cell.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Cell.#ctor">
+            <summary>
+            Create a Cell instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.Value">
+            <summary>
+            Gets or sets the value of the cell.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.IsDate">
+            <summary>
+            Gets or sets a value indicating whether the value of the cell is date or not.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.Formula">
+            <summary>
+            Gets or sets the formula of the cell.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.Style">
+            <summary>
+            Gets or sets the style of the cell.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.ColSpan">
+            <summary>
+            Gets or sets the number of columns the cell occupies.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.RowSpan">
+            <summary>
+            Gets or sets the number of rows the cell occupies.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.Link">
+            <summary>
+            Gets or sets the hyperlink of cell.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Cell.TextRuns">
+            <summary>
+             Gets the text runs represent the rich text of cell.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.TextRun">
+            <summary>
+            Represents the text run definition.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.TextRun.Font">
+            <summary>
+            Gets or sets the font of the text run.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.TextRun.Text">
+            <summary>
+            Gets or sets the text of the text run.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.CellPosition">
+            <summary>
+            The coordinates of a cell in a worksheet.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.CellPosition.#ctor(System.String)">
+            <summary>
+            Create a CellPosition by an address.
+            </summary>
+            <param name="address">The cell address.</param>
+        </member>
+        <member name="M:C1.Web.Api.Excel.CellPosition.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Create a CellPosition by coordinate components.
+            </summary>
+            <param name="col">The column number.</param>
+            <param name="row">The row number.</param>
+        </member>
+        <member name="P:C1.Web.Api.Excel.CellPosition.Row">
+            <summary>
+            Gets or sets the vertical coordinate.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.CellPosition.Col">
+            <summary>
+            Gets or sets the horizontal coordinate.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Range">
+            <summary>
+            A rectangular area in a worksheet denominated by a top-left cell and a bottom-right cell.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Range.#ctor(System.String)">
+            <summary>
+            Create a Range by address.
+            </summary>
+            <param name="address">The range address.</param>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Range.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Create a Range by coordinates and spans.
+            </summary>
+            <param name="leftCol">The starting column number.</param>
+            <param name="topRow">The starting row number.</param>
+            <param name="cols">The number of columns.</param>
+            <param name="rows">The number of rows.</param>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Range.From">
+            <summary>
+            Gets or sets the top-left cell position.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Range.To">
+            <summary>
+            Gets or sets the bottom-right cell position.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Column">
+            <summary>
+            A column in a worksheet.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Column.#ctor">
+            <summary>
+            Create a new instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Column.Width">
+            <summary>
+            Gets or sets the width of the column (pixels or characters width 'ch' suffix).
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Column.Visible">
+            <summary>
+            Gets or sets the visibility of the column.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Column.AutoWidth">
+            <summary>
+            Gets or sets a value indicating whether auto adjust the column width.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Column.Style">
+            <summary>
+            Gets or sets the style of the column.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Row">
+            <summary>
+            A row in a worksheet.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Row.#ctor">
+            <summary>
+            Create a new instance.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Row.#ctor(System.Object[])">
+            <summary>
+            Create a new Row with cells data.
+            </summary>
+            <param name="values">The cells data.</param>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Row.Height">
+            <summary>
+            Gets or sets the height of the row (points).
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Row.Visible">
+            <summary>
+            Gets or sets the visibility of the row.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Row.GroupLevel">
+            <summary>
+            Gets or sets the level of the row when in grouping.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Row.Collapsed">
+            <summary>
+            Gets or sets a value indicating if the rows 1 level of outlining deeper than the current row are in the collapsed outline state.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Row.Style">
+            <summary>
+            Gets or sets the style of the row.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Row.Cells">
+            <summary>
+            Gets the cells of the row.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Font">
+            <summary>
+            Font styles.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Font.#ctor">
+            <summary>
+            Create a Font instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Family">
+            <summary>
+            Gets or sets the typeface name.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Size">
+            <summary>
+            Gets or sets the font size.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Bold">
+            <summary>
+            Gets or sets a value indicating whether to make the text bold.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Italic">
+            <summary>
+            Gets or sets a value indicating whether to make the text italic.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Underline">
+            <summary>
+            Gets or sets underscore setting.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Strikethrough">
+            <summary>
+            Gets or sets a value indicating whether to show strikethrough.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Superscript">
+            <summary>
+            Gets or sets a value indicating whether to make the text superscript.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Subscript">
+            <summary>
+            Gets or sets a value indicating whether to make the text subscript.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Font.Color">
+            <summary>
+            Gets or sets the text color.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.BorderCollection">
+            <summary>
+            All borders of a cell.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.BorderCollection.#ctor">
+            <summary>
+            Gets or sets the create borders.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.BorderCollection.#ctor(System.String)">
+            <summary>
+            Create uniform solid borders using a color.
+            </summary>
+            <param name="color">The border color.</param>
+        </member>
+        <member name="P:C1.Web.Api.Excel.BorderCollection.Top">
+            <summary>
+            Gets or sets the top border.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.BorderCollection.Bottom">
+            <summary>
+            Gets or sets the bottom border.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.BorderCollection.Left">
+            <summary>
+            Gets or sets the left border.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.BorderCollection.Right">
+            <summary>
+            Gets or sets the right border.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.BorderCollection.Diagonal">
+            <summary>
+            Gets or sets the diagonal border.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Border">
+            <summary>
+            Border styles.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Border.#ctor">
+            <summary>
+            Create a border.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Border.#ctor(System.String)">
+            <summary>
+            Create a solid border using a color.
+            </summary>
+            <param name="color">The border color.</param>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Border.Color">
+            <summary>
+            Gets or sets the border color.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Border.Type">
+            <summary>
+            Gets or sets the border linetype.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.Fill">
+            <summary>
+            Cell fill styles.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.Fill.#ctor">
+            <summary>
+            Create a Fill instance.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Fill.Color">
+            <summary>
+            Gets or sets the fill color.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.Fill.Pattern">
+            <summary>
+            Gets or sets the fill pattern.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.DefinedName">
+            <summary>
+            Represents the Workbook Object Model Defined Name item definition.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.DefinedName.#ctor">
+            <summary>
+            Creates a defined name.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.DefinedName.Name">
+            <summary>
+            The name of the defined name item.
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.DefinedName.Value">
+            <summary>
+            The value of the defined name item.
+            The value could be a formula, a string constant or a cell range.
+            For e.g. "Sum(1, 2, 3)", "1.2", "\"test\"" or "sheet1!A1:B2".
+            </summary>
+        </member>
+        <member name="P:C1.Web.Api.Excel.DefinedName.SheetName">
+            <summary>
+            Indicates the defined name item works in which sheet.
+            If omitted, the defined name item works in workbook.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.HAlignType">
+            <summary>
+            Horizontal alignment options.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.HAlignType.General">
+            <summary>
+            General Horizontal Alignment.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.HAlignType.Left">
+            <summary>
+            Left Horizontal Alignment.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.HAlignType.Center">
+            <summary>
+            Centered Horizontal Alignment.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.HAlignType.Right">
+            <summary>
+            Right Horizontal Alignment.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.HAlignType.Fill">
+            <summary>
+            Fill.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.HAlignType.Justify">
+            <summary>
+            Justify.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.VAlignType">
+            <summary>
+            Vertical alignment options.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.VAlignType.Top">
+            <summary>
+            Align Top.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.VAlignType.Center">
+            <summary>
+            Centered Vertical Alignment.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.VAlignType.Bottom">
+            <summary>
+            Aligned To Bottom.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.VAlignType.Justify">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.TextDirectionType">
+            <summary>
+            The direction of text flow.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.TextDirectionType.Context">
+            <summary>
+            Reading order is determined by scanning the text for the first
+            non-whitespace character: if it is a strong right-to-left character,
+            the reading order is right-to-left; otherwise, the reading order left-to-right.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.TextDirectionType.LeftToRight">
+            <summary>
+            Reading order is left-to-right in the cell, as in English.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.TextDirectionType.RightToLeft">
+            <summary>
+            Reading order is right-to-left in the cell, as in Hebrew.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.BorderLinetype">
+            <summary>
+            The style of the cell borders.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.None">
+            <summary>
+            The line style of a border is none (no border visible).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Thin">
+            <summary>
+            The line style of a border is thin. 
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Medium">
+            <summary>
+            The line style of a border is medium.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Dashed">
+            <summary>
+            The line style of a border is dashed.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Dotted">
+            <summary>
+            The line style of a border is dotted.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Thick">
+            <summary>
+            The line style of a border is 'thick'.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Double">
+            <summary>
+            The line style of a border is double line.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.Hair">
+            <summary>
+            The line style of a border is hairline.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.MediumDashed">
+            <summary>
+            The line style of a border is medium dashed.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.ThinDashDotted">
+            <summary>
+            The line style of a border is thin dash-dot.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.MediumDashDotted">
+            <summary>
+            The line style of a border is medium dash-dot.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.ThinDashDotDotted">
+            <summary>
+            The line style of a border is thin dash-dot-dot.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.MediumDashDotDotted">
+            <summary>
+            The line style of a border is medium dash-dot-dot.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.BorderLinetype.SlantedMediumDashDotted">
+            <summary>
+            The line style of a border is slanted dash-dot.
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.PatternStyle">
+            <summary>
+            The pattern type of the cell fills.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.None">
+            <summary>
+            No pattern (transparent).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.Solid">
+            <summary>
+            Solid background.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.Gray50">
+            <summary>
+            50% dotted pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.Gray75">
+            <summary>
+            75% dotted pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.Gray25">
+            <summary>
+            25% dotted pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.HorizontalStripe">
+            <summary>
+            Horizontal stripe pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.VerticalStripe">
+            <summary>
+            Vertical stripe pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ReverseDiagonalStripe">
+            <summary>
+            Reverse diagonal stripe pattern (\).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.DiagonalStripe">
+            <summary>
+            Diagonal stripe pattern (/).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.DiagonalCrosshatch">
+            <summary>
+            Diagonal crosshatch pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThickDiagonalCrosshatch">
+            <summary>
+            Thick diagonal crosshatch pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThinHorizontalStripe">
+            <summary>
+            Thin horizontal stripe pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThinVerticalStripe">
+            <summary>
+            Thin vertical stripe pattern.
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThinReverseDiagonalStripe">
+            <summary>
+            Thin reverse diagonal stripe pattern (\).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThinDiagonalStripe">
+            <summary>
+            Thin diagonal stripe pattern (/).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThinHorizontalCrosshatch">
+            <summary>
+            Thin horizontal crosshatch pattern (squares).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.ThinDiagonalCrosshatch">
+            <summary>
+            Thin diagonal crosshatch pattern (diamonds).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.Gray12">
+            <summary>
+            12% dotted pattern (less dots).
+            </summary>
+        </member>
+        <member name="F:C1.Web.Api.Excel.PatternStyle.Gray06">
+            <summary>
+            6% dotted pattern (least dots).
+            </summary>
+        </member>
+        <member name="T:C1.Web.Api.Excel.FloatRoundConverter">
+            <summary>
+            The json converter for rounding the float value.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.FloatRoundConverter.CanConvert(System.Type)">
+            <summary>
+            Check if the specified type can be converted.
+            </summary>
+            <param name="objectType">The object type</param>
+            <returns>A boolean value indicates if the specified type can be converted</returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.FloatRoundConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:C1.Web.Api.Excel.FloatRoundConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="T:C1.Web.Api.Excel.CamelStringEnumConverter">
+            <summary>
+            Converts an <see cref="T:System.Enum"/> to and from its name string value with camel style.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.CamelStringEnumConverter.#ctor">
+            <summary>
+            Create a CamelStringEnumConverter.
+            </summary>
+        </member>
+        <member name="M:C1.Web.Api.Excel.CamelStringEnumConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+    </members>
+</doc>

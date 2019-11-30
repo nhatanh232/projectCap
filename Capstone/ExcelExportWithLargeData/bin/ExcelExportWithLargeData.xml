@@ -1,0 +1,297 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ExcelExportWithLargeData
+</name>
+</assembly>
+<members>
+<member name="T:ExcelExportWithLargeData.Resource">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Analysis_PivotChart">
+<summary>
+  Looks up a localized string similar to Pivot chart.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Analysis_PivotGrid">
+<summary>
+  Looks up a localized string similar to Pivot grid.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlLayout_Documentation">
+<summary>
+  Looks up a localized string similar to Documentation.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlLayout_Sample">
+<summary>
+  Looks up a localized string similar to Sample.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlLayout_Source">
+<summary>
+  Looks up a localized string similar to Source.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlList_Description">
+<summary>
+  Looks up a localized string similar to Description.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlList_HTTPStatusCode">
+<summary>
+  Looks up a localized string similar to HTTP Status Code.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlList_Reason">
+<summary>
+  Looks up a localized string similar to Reason.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlList_ResponseMessages">
+<summary>
+  Looks up a localized string similar to Response Messages.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlList_ResponseSchema">
+<summary>
+  Looks up a localized string similar to Response Schema.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ControlsNav_Features">
+<summary>
+  Looks up a localized string similar to Features.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Description_Content">
+<summary>
+  Looks up a localized string similar to &lt;p&gt;
+        Because browsers and JavaScript limitations, &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.FlexGrid.Class.html&quot;&gt;FlexGird&lt;/a&gt;
+        control with large data(more than 50,000 rows) cannot be converted to Excel file by
+        &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.xlsx.FlexGridXlsxConverter.Class.html&quot;&gt;FlexGridXlsxConverter&lt;/a&gt;
+        or &lt;a href=&quot;http://help.grapecity.com/componentone/NetHe [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_Export">
+<summary>
+  Looks up a localized string similar to Export.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_ExportFormat">
+<summary>
+  Looks up a localized string similar to Export Format:.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_ExportImport">
+<summary>
+  Looks up a localized string similar to Export &amp; Import.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_ExportName">
+<summary>
+  Looks up a localized string similar to Export Name :.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_ExportText">
+<summary>
+  Looks up a localized string similar to Export.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_Import">
+<summary>
+  Looks up a localized string similar to Import.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_ImportText">
+<summary>
+  Looks up a localized string similar to Import.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_IncludeColumnHeaders">
+<summary>
+  Looks up a localized string similar to IncludeColumnHeaders:.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.FlexGridOptions_OnlyCurrentPage">
+<summary>
+  Looks up a localized string similar to OnlyCurrentPage:.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.GcIconsCssPath">
+<summary>
+  Looks up a localized string similar to ~/Content/css/gcicons.css.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ImageExportOptions_Export">
+<summary>
+  Looks up a localized string similar to Export.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ImageExportOptions_ExportFormat">
+<summary>
+  Looks up a localized string similar to Export Format :.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ImageExportOptions_ExportText">
+<summary>
+  Looks up a localized string similar to Export.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ImageExportOptions_Height">
+<summary>
+  Looks up a localized string similar to Height :.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.ImageExportOptions_Width">
+<summary>
+  Looks up a localized string similar to Width :.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Index_Content">
+<summary>
+  Looks up a localized string similar to &lt;h4&gt;Welcome!&lt;/h4&gt;
+        &lt;br /&gt;
+        &lt;p&gt;This sample demonstrates how to control authorization in C1 DataEngine Services.&lt;/p&gt;
+        &lt;p&gt;Please login with pre-registered user or the register a new user.&lt;/p&gt;
+        &lt;p&gt;
+            Every user has to be assigned a role. Different roles have different permissions for accessing
+            the data sources and the fields.
+        &lt;/p&gt;.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Index_Email">
+<summary>
+  Looks up a localized string similar to Email.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Index_ExportExcel">
+<summary>
+  Looks up a localized string similar to Export Excel.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Index_Format">
+<summary>
+  Looks up a localized string similar to Format: .
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Index_Login">
+<summary>
+  Looks up a localized string similar to Login.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Index_Register">
+<summary>
+  Looks up a localized string similar to Register.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_Close">
+<summary>
+  Looks up a localized string similar to Close.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_ComponentOne">
+<summary>
+  Looks up a localized string similar to ComponentOne.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_GrapeCityUrl">
+<summary>
+  Looks up a localized string similar to http://www.grapecity.com/.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_License1">
+<summary>
+  Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved..
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_License2">
+<summary>
+  Looks up a localized string similar to All product and company names here in may be trademarks of their respective owners..
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_Loading">
+<summary>
+  Looks up a localized string similar to Loading....
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_LongTitle">
+<summary>
+  Looks up a localized string similar to ASP.NET Web API Explorer.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_ProductUrl">
+<summary>
+  Looks up a localized string similar to https://www.grapecity.com/en/webapi/.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_ShortTitle">
+<summary>
+  Looks up a localized string similar to Web API Explorer.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.Layout_TwitterText">
+<summary>
+  Looks up a localized string similar to Have you seen this? C1Studio Web API.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_About">
+<summary>
+  Looks up a localized string similar to About.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_AboutUrl">
+<summary>
+  Looks up a localized string similar to https://www.grapecity.com/en/webapi/.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_FreeTrial">
+<summary>
+  Looks up a localized string similar to FREE TRIAL.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_FreeTrialUrl">
+<summary>
+  Looks up a localized string similar to https://www.grapecity.com/en/download/componentone-studio.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_Pricing">
+<summary>
+  Looks up a localized string similar to Pricing.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_PricingUrl">
+<summary>
+  Looks up a localized string similar to https://www.grapecity.com/en/pricing.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_SignOut">
+<summary>
+  Looks up a localized string similar to Sign out.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_Support">
+<summary>
+  Looks up a localized string similar to Support.
+</summary>
+</member>
+<member name="P:ExcelExportWithLargeData.Resource.SiteNav_SupportUrl">
+<summary>
+  Looks up a localized string similar to http://supportone.componentone.com/login.
+</summary>
+</member>
+</members>
+</doc>

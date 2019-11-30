@@ -1,0 +1,11 @@
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\bin\Debug\netcoreapp2.1\TSFConnectAzure.deps.json
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\bin\Debug\netcoreapp2.1\TSFConnectAzure.runtimeconfig.json
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\bin\Debug\netcoreapp2.1\TSFConnectAzure.runtimeconfig.dev.json
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\bin\Debug\netcoreapp2.1\TSFConnectAzure.dll
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\bin\Debug\netcoreapp2.1\TSFConnectAzure.pdb
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\obj\Debug\netcoreapp2.1\TSFConnectAzure.csprojAssemblyReference.cache
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\obj\Debug\netcoreapp2.1\TSFConnectAzure.csproj.CoreCompileInputs.cache
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\obj\Debug\netcoreapp2.1\TSFConnectAzure.AssemblyInfoInputs.cache
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\obj\Debug\netcoreapp2.1\TSFConnectAzure.AssemblyInfo.cs
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\obj\Debug\netcoreapp2.1\TSFConnectAzure.dll
+D:\FPT\Capstone\TSFConnectAzure\TSFConnectAzure\TSFConnectAzure\obj\Debug\netcoreapp2.1\TSFConnectAzure.pdb
